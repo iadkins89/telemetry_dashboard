@@ -72,6 +72,38 @@ app.layout = dbc.Container([
         dbc.Col(dcc.Graph(id='temperature-graph'), width=6),
         dbc.Col(dcc.Graph(id='humidity-graph'), width=6)
     ]),
+    dbc.Row([
+        dbc.Col(dcc.Graph(
+            id='map-graph',
+            figure={
+                'data': [
+                    go.Scattermapbox(
+                        lat=[30.685075],
+                        lon=[-88.074669],
+                        mode='markers',
+                        marker=dict(size=14, color='red'),
+                        text=['Sensor Location']
+                    )
+                ],
+                'layout': go.Layout(
+                    title='Map Scatter Plot',
+                    autosize=True,
+                    hovermode='closest',
+                    mapbox=dict(
+                        accesstoken='pk.eyJ1IjoiaWVhMjAyMSIsImEiOiJjbHh6ZXp4OWgwYXdrMmxxMTYwcmtrNGdiIn0.kchUpTpboU3YMlrUkx8HuA',
+                        bearing=0,
+                        center=dict(
+                            lat=30.685075,
+                            lon=-88.074669
+                        ),
+                        pitch=0,
+                        zoom=10,
+                        style='outdoors'
+                    )
+                )
+            }
+        ), width=12)
+    ]),
     dcc.Interval(id='interval-component', interval=1* 1000, n_intervals=0)  # Update every second
 ])
 
