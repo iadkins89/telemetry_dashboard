@@ -86,7 +86,7 @@ app.layout = dbc.Container([
                     )
                 ],
                 'layout': go.Layout(
-                    title='Map Scatter Plot',
+                    title='Sensor Location',
                     autosize=True,
                     hovermode='closest',
                     mapbox=dict(
